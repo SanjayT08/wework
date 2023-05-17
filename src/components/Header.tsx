@@ -1,27 +1,40 @@
 // "use client";
 
-import { Box, Stack, styled } from "@mui/material";
+import { Box, Stack, styled, IconButton, Avatar, Divider, List, Drawer, ListItem, ListItemIcon, ListItemText, Toolbar, Typography } from "@mui/material";
 import {
   KeyboardArrowRight,
   SearchOutlined,
   InboxOutlined,
   NotificationsOutlined,
   HelpOutlineOutlined,
+  Menu,
+  
 } from "@mui/icons-material";
+import { useCallback, useState } from "react";
+import Sidebar from "./Sidebar";
+
 
 
 const Header = () => {
+  const [open, setOpen] = useState(false);
+  
+  const handleClose = useCallback(() => setOpen(false), [])
+
+ 
   return (
+    <>
     <Navbar>
       <Container>
         <DarkGreenCircle>
           <FadeGreenCircle />
         </DarkGreenCircle>
-        <KeyboardArrowRight sx={{ color: "#657372" }} />
+        <KeyboardArrowRight sx={{ color: "#657372", cursor: "pointer"}} />
       </Container>
 
       <Container>
-        <Stack direction="row" alignItems="center" gap="20px">
+        <Stack direction="row" alignItems="center" gap="20px" sx={{
+          display: {sm: "flex", xs: "none"}
+        }}>
           <SearchOutlined sx={{ color: "#657372", fontSize: "32px" }} />
           <InboxOutlined sx={{ color: "#657372", fontSize: "32px" }} />
           <Notification>
@@ -41,8 +54,23 @@ const Header = () => {
             />
           </Profile>
         </Stack>
+        <Box>
+        <IconButton sx={{
+          display: {sm: "none", xs: "block"}
+        }} onClick={() => setOpen(!open)}>
+              <Menu />
+        </IconButton>
+        
+            </Box>
       </Container>
+      
+      
+       
     </Navbar>
+    {
+        open ? <Sidebar handleClose={handleClose} /> : null
+      }
+    </>
   );
 };
 
@@ -53,6 +81,9 @@ const Navbar = styled(Box)({
   padding: "20px",
   position: "sticky",
   top: 0,
+  zIndex: 100,
+  background: "#fff",
+  borderBottom: "1px solid #E9EBEB"
 });
 
 const Container = styled(Box)({
@@ -105,5 +136,14 @@ const Profile = styled(Box)({
   borderRadius: "50%",
   border: "1px solid #D3D7D7",
 });
+
+const SliderValueLabel = styled(Box)({
+  cursor: "pointer",
+  display: "flex",
+  flexDirection: "column",
+  justifyContent: "space-between",	
+})
+
+
 
 export default Header;

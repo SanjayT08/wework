@@ -5,25 +5,28 @@ import { Box, Button, Stack, Typography, styled } from "@mui/material";
 
 
 const Banner = () => {
+
   return (
-    <Stack>
+    <Stack padding= "20px">
       <TopContainer>
-        <H2>WeWork + Salesforce</H2>
+        <H2 sx={{ fontSize: {md: "35px", sm: "25px", xs: "18px"} }}>WeWork + Salesforce</H2>
         <GreenButton variant="contained">Publish/Share</GreenButton>
       </TopContainer>
 
       <ImageContainer>
+        <WhiteContainer sx={{ width: {md: "629px"}, backgroundImage: {md: `url("/images/rectangle.png")`} }}>
         <Typography
-          fontSize="48.88px"
-          paddingRight={"5rem"}
+          sx={{ fontSize: {md: "48.88px", xs: "29.05px", }, lineHeight: {md: "48.88px", xs: "31.08px" }}}
+          
           fontWeight="900"
-          lineHeight={"48.88px"}
           color="#000000"
+        
         >
           <span>Workspace</span>
           <br />
           <span>Proposal</span>
         </Typography>
+        </WhiteContainer>
 
         <BannerCard>
           <Stack direction="row" alignItems="center" gap="14px" >
@@ -54,7 +57,6 @@ const TopContainer = styled(Box)({
 });
 
 const H2 = styled(Typography)({
-  fontSize: "35px",
   lineHeight: "42.63px",
   fontWeight: 800,
   color: "#04433B",
@@ -70,7 +72,11 @@ const GreenButton = styled(Button)({
   textAlign: "center",
   lineHeight: "100px",
   width: "147px",
-  height: "40px"
+  height: "40px",
+  textTransform: "capitalize",
+  '&:hover': {
+    background: "#00B686",
+  }
 });
 
 const ImageContainer = styled(Box)({
@@ -82,8 +88,25 @@ const ImageContainer = styled(Box)({
   alignItems: "center",
   justifyContent: "flex-end",
   position: "relative",
-  height: "200px",
+  height: "191px",
+  marginTop: "20px",
+  borderRadius: "10px",
 });
+
+const WhiteContainer = styled(Box)({
+  background: "transparent",
+  height: "100%",
+  position: "absolute",
+  right: 0,
+  backgroundRepeat: "no-repeat",
+  backgroundSize: "cover",
+  backgroundPosition: "center",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  
+
+})
 
 const BannerCard = styled(Box)({
   width: "246px",
@@ -91,8 +114,8 @@ const BannerCard = styled(Box)({
   borderRadius: "10px",
   background: "white",
   position: "absolute",
-  left: "10px",
-  bottom: "-20px",
+  left: "20px",
+  bottom: "-40px",
   padding: "10px"
 });
 
