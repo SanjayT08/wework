@@ -1,6 +1,6 @@
 // "use client";
 
-import { Box, Stack, styled, IconButton, Avatar, Divider, List, Drawer, ListItem, ListItemIcon, ListItemText, Toolbar, Typography } from "@mui/material";
+import { Box, Stack, styled, IconButton } from "@mui/material";
 import {
   KeyboardArrowRight,
   SearchOutlined,
@@ -137,12 +137,6 @@ const Profile = styled(Box)({
   border: "1px solid #D3D7D7",
 });
 
-const SliderValueLabel = styled(Box)({
-  cursor: "pointer",
-  display: "flex",
-  flexDirection: "column",
-  justifyContent: "space-between",	
-})
 
 
 

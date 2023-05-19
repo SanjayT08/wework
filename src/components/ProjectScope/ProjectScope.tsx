@@ -26,7 +26,7 @@ const tabs: TabData[] = [
 export default function ProjectScope() {
   const [value, setValue] = useState("1");
 
-  const handleChange = (event: React.SyntheticEvent, newValue: string) => {
+  const handleChange = (_event: React.SyntheticEvent, newValue: string) => {
     setValue(newValue);
   };
 

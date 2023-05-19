@@ -8,7 +8,6 @@ import {
   VisibilityOffOutlined,
 } from "@mui/icons-material";
 import { Box, Divider, Stack, Typography, styled, IconButton } from "@mui/material";
-import { useState } from "react";
 import VerticalAlignBottomOutlinedIcon from "@mui/icons-material/VerticalAlignBottomOutlined";
 import ZoomOutOutlinedIcon from "@mui/icons-material/ZoomOutOutlined";
 import ZoomInOutlinedIcon from "@mui/icons-material/ZoomInOutlined";
@@ -20,13 +19,13 @@ type Overview = {
 };
 
 const BasicInfo = () => {
-  const [overviews, setOverviews] = useState<Overview[]>([
+  const overviews: Overview[] = [
     { label: "Welcome" },
     { label: "Product Capabilities" },
     { label: "Customer Success Stories" },
     { label: "File Sharing" },
     { label: "Our Deck" },
-  ]);
+  ];
 
   return (
     <Stack direction="row" gap="14px" marginTop="14px">
@@ -47,7 +46,7 @@ const BasicInfo = () => {
             return (
               <Box
                 key={overview.label}
-                sx={{ background: "#fff", margin: "10px 0" }}
+                sx={{ background: "#fff", margin: "10px 0", cursor: "pointer"}}
               >
                 <Typography
                   fontWeight={400}
